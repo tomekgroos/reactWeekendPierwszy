@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Car from './cwiczenie1/cw1';
+
 
 function App() {
   return (
@@ -23,4 +25,6 @@ function App() {
   );
 }
 
-export default App;
+/*export default App;*/
+
+export default Car;
