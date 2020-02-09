@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default class MyForm extends React.Component {
+export default class Person extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             username: '',
             surname: '',
             age: null,
-            sex: "",
+            gender: "",
             errormessage: ''
         };
     }
@@ -17,8 +17,7 @@ export default class MyForm extends React.Component {
         let errAge = '';
         let errName = '';
         let errSurname = '';
-        let errSex = '';
-        let errCapital = '';
+        let errGender = '';
 
 
         if (nam === "age") {
@@ -37,13 +36,13 @@ export default class MyForm extends React.Component {
             this.setState({errormessage: errName});
         }
 
-        if (nam == "sex"){
+        if (nam == "gender"){
             if (val !== "m" || val !=="k"){
-                errSex = <strong>To twoj moment! Zdecyduj czy jestes kobieta "k",
+                errGender = <strong>To twoj moment! Zdecyduj czy jestes kobieta "k",
                     czy mezczyzna "m"
                 </strong>;
             }  
-            this.setState({errormessage: errSex});
+            this.setState({errormessage: errGender});
         }
 
         if (nam == "surname"){
@@ -53,11 +52,11 @@ export default class MyForm extends React.Component {
             this.setState({errormessage: errSurname});
         }
 
-        if (nam == "username" || nam == "surname") {
-            if (val != "[A-Z]{1}[^\s]+"){
-                errCapital = <strong>Please begin with Capital letter</strong>
+        if (nam === "username" || nam === "surname") {
+            if (!/^[A-Z][a-z0-9_-]{0,19}$/.test(val)){
+                errName = <strong>Please begin with Capital letter</strong>
             }
-            this.setState({errormessage: errCapital});
+            this.setState({errormessage: errName});
         }
         
 
@@ -67,7 +66,7 @@ export default class MyForm extends React.Component {
     render() {
         return (
             <form>
-                <h1>Hello {this.state.username} {this.state.age}{this.state.surname} of Sex {this.state.sex}</h1>
+                <h1>Hello {this.state.username} {this.state.surname} your age is {this.state.age} your gender is {this.state.gender}</h1>
                 <p>Enter your name:</p>
                 <input
                     type='text'
@@ -90,7 +89,7 @@ export default class MyForm extends React.Component {
                 <p>Enter your sex:</p>
                 <input
                     type='text'
-                    name='sex'
+                    name='gender'
                     onChange={this.myChangeHandler}
                 />
 
