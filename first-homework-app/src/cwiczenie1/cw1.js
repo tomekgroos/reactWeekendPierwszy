@@ -16,7 +16,6 @@ export default class Person extends React.Component {
         let val = event.target.value;
         let errAge = '';
         let errName = '';
-        let errSurname = '';
         let errGender = '';
 
 
@@ -28,29 +27,16 @@ export default class Person extends React.Component {
             this.setState({errormessage: errAge});
         }
         
+    
 
-        if (nam == "username"){
+        if (nam == "username" || nam== "surname"){
             if (val.length <= 2){
-                errName = <strong>Your name must be more than 2 characters</strong>;
+                errName = <strong>Your name and surname must be more than 2 characters</strong>;
             }  
             this.setState({errormessage: errName});
         }
 
-        if (nam == "gender"){
-            if (val !== "m" || val !=="k"){
-                errGender = <strong>To twoj moment! Zdecyduj czy jestes kobieta "k",
-                    czy mezczyzna "m"
-                </strong>;
-            }  
-            this.setState({errormessage: errGender});
-        }
-
-        if (nam == "surname"){
-            if (val.length <= 2){
-                errSurname = <strong>Your surname must be more than 2 characters</strong>;
-            }  
-            this.setState({errormessage: errSurname});
-        }
+       
 
         if (nam === "username" || nam === "surname") {
             if (!/^[A-Z][a-z0-9_-]{0,19}$/.test(val)){
@@ -59,14 +45,25 @@ export default class Person extends React.Component {
             this.setState({errormessage: errName});
         }
         
+        if (nam == "gender"){
+            if (val != 'm' && val !='k'){
+                errGender = <strong> Zdecyduj czy jestes kobieta "k",
+                    czy mezczyzna "m"
+                </strong>;
+            }  
+            this.setState({errormessage: errGender});
+        }
 
         this.setState({[nam]: val});
     }
 
+
+    
+
     render() {
         return (
             <form>
-                <h1>Hello {this.state.username} {this.state.surname} your age is {this.state.age} your gender is {this.state.gender}</h1>
+                <h1>Hello {this.state.username} {this.state.surname} your age is {this.state.age} and your gender is {this.state.gender}</h1>
                 <p>Enter your name:</p>
                 <input
                     type='text'
@@ -86,7 +83,7 @@ export default class Person extends React.Component {
                     onChange={this.myChangeHandler}
                 />
 
-                <p>Enter your sex:</p>
+                <p>Enter your gender:</p>
                 <input
                     type='text'
                     name='gender'
