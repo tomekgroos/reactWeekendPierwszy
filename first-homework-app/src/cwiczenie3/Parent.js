@@ -10,8 +10,6 @@ export default class Parent extends React.Component {
                 sum: 0,
             };
             
-            this.makeSum = this.makeSum.bind(this);
-            this.resetSum = this.resetSum.bind(this);
         }
          
         makeSum = () => {
@@ -25,7 +23,7 @@ export default class Parent extends React.Component {
             let value = this.state.sum + Number(getValue);
             this.setState({sum: value})
             }
-            
+ 
     
         }
 
