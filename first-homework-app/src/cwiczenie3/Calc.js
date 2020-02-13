@@ -2,27 +2,32 @@ import React from 'react';
 
 
 
+
 export default class Calc extends React.Component {
-
     
-
-    click = () => {
-        this.value = prompt("Wprowadz Liczbe:");
-    }
+    
 
     render() {
+       
+       
 
-        
+    return(
 
-        return (
-            <div>
-               <button type="button" onClick={this.props.click}>Wprowadz liczbe</button>
-            
+        <div>
+           <button onClick={this.props.setValue}>
+                 Wprowadz liczbe: 
                 
-            </div>
+           </button>
             
-        );
-    }
-    
-}
+           <button onClick={this.props.reset}>
+                 Resetuj
+                
+           </button>
 
+    
+        </div>    
+    );
+    }
+
+
+}
