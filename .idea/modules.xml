@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/reactWeekendPierwszy.iml" filepath="$PROJECT_DIR$/.idea/reactWeekendPierwszy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../react_blog/.idea/react_blog.iml" filepath="$PROJECT_DIR$/../react_blog/.idea/react_blog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../reactserver/.idea/reactserverapp.iml" filepath="$PROJECT_DIR$/../reactserver/.idea/reactserverapp.iml" />
+    </modules>
+  </component>
+</project>
